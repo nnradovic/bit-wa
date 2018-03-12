@@ -1,51 +1,40 @@
 class Show {
-    constructor(id, name, image = "") {
+    constructor(id, name, image = '') {
         this.id = id;
         this.name = name;
         this.image = image;
     }
 }
-const createShows = shows => {
+
+const createShow = (shows) => { //Recive argument from controler response.
     let listOfShows = [];
 
-    shows.forEach((element, index) => {
+    shows.forEach((element, index) => { //Now is single element from response.
         if (element.rating.average > 7) {
             if (index < 50) {
-                listOfShows.push(new Show(element.id, element.name, element.image.medium));
+                listOfShows.push(new Show(element.id, element.name, element.image.medium)) //We push instance in array.
             }
         }
     });
+    return listOfShows;
 
-    return listOfShows
 }
 
-const searchShow = showList => {
-    let show10 = [];
+const createSearchShow = (show) => { //Recive argument from controler response from search.
+    let listOfSearchShow = [];
 
-    showList.forEach(({ show }, index) => {
+    show.forEach((element, index) => { //Now is single element from response.
         if (index < 10) {
-            let showName = new Show(show.id, show.name);
-            show10.push(showName);
+            listOfSearchShow.push(new Show(element.show.id, element.show.name)) //We push instance in array.
         }
-    })
+    });
 
-    return show10
+    return listOfSearchShow;
 }
 
-const addToStorage = (key, value) => {
-    localStorage.setItem(key, value);
-}
-
-const getSingleShowID = (key) => {
-    return localStorage.getItem(key);
-}
 
 export{
     Show,
-    createShows,
-    searchShow,
-    addToStorage,
-    getSingleShowID
-
-
+    createShow,
+    createSearchShow
 }

@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Movies</title>
+    <title>Show</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body class="single-page">
+<body class="main-page">
+
     <nav id="main-nav" class="navbar justify-content-between">
         <div class="container">
             <a class="navbar-brand">BitShow</a>
@@ -22,25 +23,12 @@
     </nav>
 
     <main class="container">
-        <h1 class="single-show-title"></h1>
-        <div class="row row1">
-            <div class="col-md-6 single-show-img"></div>
-            <div class="col-md-6 ">
-                <div>
-                    <h3>Seasons <span class="season-counter"></span></h3>
-                    <ul class="single-show-seasons"></ul>
-                </div>
-                <div>
-                    <h3>Cast</h3>
-                    <ul class="single-show-cast"></ul>
-                </div>
-            </div>
+        <div class="headline-holder">
+            <h1>Popular Shows</h1>
         </div>
-        <div class="row row2">
-            <h2>Show details:</h2>
-            <div class="col-12 single-show-details"></div>
+        <div id="main-row" class="row">
+
         </div>
-        <button  class="btn btn-primary"><a href="index.html"> Back to Main Page</a> </button>
     </main>
 
     <footer>
@@ -54,11 +42,10 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-        <script type="module" src="./js/data/data_module.js"></script>
+    <script src="./js/data_module.js"></script>
     <script src="./js/ui_module.js"></script>
-    <script type="module" src="./js/ctrl_module.js"></script>
-    <script type="module" src="./js/single_ctrl_module.js"></script>
-    <!-- <script>$(single_ctrl_module.init())  </script> -->
+    <script  src="./js/ctrl_module.js"></script>
+    <script>  $(ctrlModule.mainPage())</script>
 </body>
 
 </html>

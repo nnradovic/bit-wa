@@ -1,4 +1,4 @@
-import * as data_Module from './data/data_module.js';
+// import * as data_module from './data/data_module.js';
 ///////IMPORT FROM DATA////
 // DATA.
 // showUrl  
@@ -71,6 +71,6 @@ var ctrlModule = ((DATA, UI) => {
     }
 
 })(data_Module, ui_Module)
-$(ctrlModule.mainPage())
+
 
 

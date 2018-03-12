@@ -1,11 +1,6 @@
+import {Show,createShow,createSearchShow} from './data_show.js'
 
-import {Show,
-    createShows,
-    searchShow,
-    addToStorage,
-    getSingleShowID
- } from "./data_show.js"
-class singleShow extends Show {
+class SingleShow extends Show {
     constructor(id, name, image, summary) {
         super("", name, image);
         this.summary = summary;
@@ -13,11 +8,12 @@ class singleShow extends Show {
 }
 
 const createSingleShow = show => {
-    const currentShow = new singleShow("", show.name, show.image, show.summary);
+    const currentShow = new SingleShow("", show.name, show.image, show.summary);
     return currentShow
 }
 
-export {
-    singleShow,
+export{
+    SingleShow,
     createSingleShow
+
 }
