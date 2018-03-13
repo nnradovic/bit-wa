@@ -6,7 +6,6 @@ class SingleShow extends Show {
         this.summary = summary;
     }
 }
-
 const createSingleShow = show => {
     const currentShow = new SingleShow("", show.name, show.image, show.summary);
     return currentShow

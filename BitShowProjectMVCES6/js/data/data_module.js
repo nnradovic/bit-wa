@@ -4,7 +4,6 @@
         urlSearch: "http://api.tvmaze.com/search/shows?q="
     }
     
-    
     import { Show,createShow,createSearchShow} from './data_show.js';
     import { addToStorage,getFromStorage} from './data_utilite.js'
     import { SingleShow, createSingleShow} from './data_singleShow.js';
