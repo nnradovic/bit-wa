@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
-import List from './list.js'
+import ListItem from './list.js'
 
 const ListUsers = (props) => {
     const lists = props.data;
- 
+   console.log(lists);
+   
     
     return (
+       
         <div className="card">
-            
-            {lists.map((list, index) => <ListUsers key={index} email={list.email} name={list.name.first} lastname={list.name.last} dob={list.dob} picture={list.picture.large} />)}
+             <div className="row">
+            {lists.map((list, index) => <ListItem key={index} email={list.email} name={list.name.first} lastname={list.name.last} dob={list.dob} picture={list.picture.large} />)}
         </div>
-          
+          </div>
     )
 }
 

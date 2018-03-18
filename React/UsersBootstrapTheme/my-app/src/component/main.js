@@ -3,6 +3,7 @@ import ListUsers from './listUsers.js'
 
 const Main = (props)=>{
     const main = props.data;
+   console.log(main);
    
     
     return(
