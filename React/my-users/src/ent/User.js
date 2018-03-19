@@ -9,7 +9,7 @@ class User {
         this.dob = dob;
         this.picture = picture;
     }
-    getDate() {
+    getDate(dob) {
  
             const date = new Date(this.dob);
             const year = date.getFullYear();
@@ -19,18 +19,11 @@ class User {
             return `${year}-${month}-${day}`;
         
     }
-    getEmail () {
+    getEmail (email) {
         const monkey = this.email.indexOf('@');
         const string = this.email.substring(0,monkey) + '...';
         return string;
     }
 }
-
-
-// const createUsers = (usersData) => {
-//     return new User(usersData.email, usersData.name, usersData.lastname, usersData.dob, usersData.picture);
-    
-// };
-
 
 export  default User;

@@ -1,5 +1,5 @@
 import React from 'react'
-import User from './../ent/User'
+import User from '.././ent/User'
 
 class UserService {
    
@@ -9,9 +9,9 @@ class UserService {
                 return response.json()
             })
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 let usersData = data.results;
-                console.log(usersData);
+                // console.log(usersData);
                 
                 return usersData.map((user) => {
                         return new User(user.email, user.name, user.dob, user.picture)
@@ -19,12 +19,7 @@ class UserService {
             });
     }
 
-    // getData() {
-        
-    //     return usersData.map((user) => {
-    //         return new User(user.email, user.name, user.dob, user.picture)
-    //     })
-    // }
+
 }
 
 export const userService = new UserService();
