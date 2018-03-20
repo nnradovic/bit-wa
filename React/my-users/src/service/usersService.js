@@ -1,4 +1,4 @@
-import React from 'react'
+
 import User from '.././ent/User'
 
 class UserService {
@@ -12,10 +12,17 @@ class UserService {
                 // console.log(data);
                 let usersData = data.results;
                 // console.log(usersData);
+                // console.log(usersData[0].gender);
+                    
+
+                    return usersData.map((user) => {
+                            return new User(user.email, user.name, user.dob, user.picture,user.gender)
+                        })
+
+              
+                        
+                  
                 
-                return usersData.map((user) => {
-                        return new User(user.email, user.name, user.dob, user.picture)
-                    })
             });
     }
 

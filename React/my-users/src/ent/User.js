@@ -1,13 +1,14 @@
-import React from  "react";
+
 
 
 class User {
-    constructor(email, name, dob, picture) {
+    constructor(email, name, dob, picture,gender) {
         this.email = email;
         this.name = name.first;
         this.lastname = name.last;
         this.dob = dob;
         this.picture = picture;
+        this.gender = gender;
     }
     getDate(dob) {
  
@@ -16,13 +17,18 @@ class User {
             const month = date.getMonth();
             const day = date.getDate();
     
-            return `${year}-${month}-${day}`;
+            return `Birth date: ${day}.${month}.${year}`;
         
     }
     getEmail (email) {
-        const monkey = this.email.indexOf('@');
-        const string = this.email.substring(0,monkey) + '...';
+        // const monkey = this.email.indexOf('@')-3;
+        const string = this.email.substring(0,2) + '...' + this.email.substring(5, this.email.length) ;
         return string;
+    }
+    getGender() {
+        if (this.gender === 'female') {
+            return ' red lighten-2';
+        } 
     }
 }
 

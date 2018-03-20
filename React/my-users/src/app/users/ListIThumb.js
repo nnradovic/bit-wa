@@ -3,17 +3,21 @@ import React from 'react'
 
 const ListThumb = (props)=>{
     const{email, name, dob, picture}=props.data
-    console.log(email, name, dob, picture);
+    // console.log(email, name, dob, picture);
     
    return(
     
-    <li className="collection-item avatar">
-      <img src={picture.medium} alt="" className="circle"/>
+    <li className="collection-item avatar"   >
+    <div className={props.data.getGender()}>
+
+      <img src={picture.medium} alt="" className="circle"  />
       <span className="title">{name}</span>
-      <p>{props.data.getEmail()} <br/>
-        {props.data.getDate()}
-      </p>
-      <a href="#!" className="secondary-content"><i className="material-icons">grade</i></a>
+      
+      <p><i className="material-icons">email</i> {props.data.getEmail()} </p> 
+      <p><i className="material-icons">cake</i> {props.data.getDate()} </p>
+    </div>
+      
+     
     </li>
    )
 
