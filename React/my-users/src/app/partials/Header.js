@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import {Link} from "react-router-dom";
 
 
 const Header = (props) => {
@@ -10,10 +11,9 @@ const Header = (props) => {
   return (
     <nav>
       <div className="nav-wrapper">
-
-        <a className="brand-logo center">Bit Person</a>
+        <Link to="/" className="brand-logo center">Bit Person</Link>
         <ul className="right hide-on-med-and-down">
-        <li><a >About</a></li>
+        <li><Link to="/about">About</Link></li>
         <li><i className="material-icons">search</i></li>
           <li><input type="text" value={value} onChange={keyup}/></li>
           <li><a onClick={refresh}><i className="material-icons">refresh</i></a></li>

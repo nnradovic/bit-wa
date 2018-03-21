@@ -3,10 +3,12 @@ import { userService } from "../service/usersService";
 
 
 class User {
-    constructor(email, name, dob, picture,gender) {
+    constructor(id, email, name,  dob, picture,gender) {
+        this.id = id.value;
         this.email = email;
-        this.name = name.first;
-        this.lastname = name.last;
+        this.name = name.first.charAt(0).toUpperCase()+name.first.slice(1);
+        this.last = name.last.charAt(0).toUpperCase()+name.last.slice(1);
+        this.fullName = this.name +' '+ this.last
         this.dob = dob;
         this.picture = picture;
         this.gender = gender;
@@ -30,7 +32,9 @@ class User {
             return 'red lighten-5';
         } 
     }
- 
+
+
+  
 }
 
 export  default User;

@@ -16,7 +16,8 @@ class UserService {
                     
 
                     return usersData.map((user) => {
-                            return new User(user.email, user.name, user.dob, user.picture,user.gender)
+                        
+                            return new User(user.id,user.email, user.name, user.dob, user.picture,user.gender)
                         })
 
               

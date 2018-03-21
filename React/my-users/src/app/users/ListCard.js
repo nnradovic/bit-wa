@@ -1,8 +1,9 @@
 import React from 'react';
-
+import {Link} from "react-router-dom";
 
 const ListCard = (props) => {
-  const { email, name, dob, picture } = props.data
+  const { id, email, name,last, dob, picture } = props.data
+ console.log(props.data)
   // console.log(email, name, dob, picture);
 
   return (
@@ -12,11 +13,14 @@ const ListCard = (props) => {
         <div className={props.data.getGender()}>
           <div className="card-image">
             <img src={picture.large} />
-            <span className="card-title">{name}</span>
+            <span className="card-title">{name} {last}</span>
           </div>
           <div className="card-content">
             <p>{props.data.getEmail()}</p>
             <p>{props.data.getDate()}</p>
+            <div className="card-action">
+              <Link  to={`/SingleUser/${id}`} props={props.data}>View Profile</Link>
+            </div>
           </div>
         </div>
       </div>
