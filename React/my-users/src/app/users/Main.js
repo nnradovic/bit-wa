@@ -7,7 +7,10 @@ const Main = (props) => {
     // console.log(data, displayCard);
 
     return (
+        <div className="container">
+        
         <List data={data} displayCard={displayCard} />
+        </div>
     )
 
 

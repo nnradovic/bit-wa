@@ -7,7 +7,7 @@ const ListThumb = (props)=>{
     
    return(
     
-    <li className="collection-item avatar"   >
+     <li className="collection-item avatar"   >
     <div className={props.data.getGender()}>
 
       <img src={picture.medium} alt="" className="circle"  />

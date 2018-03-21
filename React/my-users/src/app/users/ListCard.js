@@ -7,7 +7,7 @@ const ListCard = (props) => {
 
   return (
 
-    <div className="col m4" >
+    <div className="col s12 m4" >
       <div className='card'  >
         <div className={props.data.getGender()}>
           <div className="card-image">

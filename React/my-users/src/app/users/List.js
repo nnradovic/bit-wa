@@ -14,7 +14,9 @@ const List = (props) => {
     const listCardFun = () => {
         return (
             <div className="row"  >
+             <ul className="collection"  >
                 {listCard}
+                </ul>
             </div>
         )
     }

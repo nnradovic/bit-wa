@@ -1,3 +1,4 @@
+import { userService } from "../service/usersService";
 
 
 
@@ -11,7 +12,6 @@ class User {
         this.gender = gender;
     }
     getDate(dob) {
- 
             const date = new Date(this.dob);
             const year = date.getFullYear();
             const month = date.getMonth();
@@ -27,9 +27,10 @@ class User {
     }
     getGender() {
         if (this.gender === 'female') {
-            return ' red lighten-2';
+            return 'red lighten-5';
         } 
     }
+ 
 }
 
 export  default User;

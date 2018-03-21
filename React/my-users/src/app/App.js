@@ -5,6 +5,8 @@ import Header from './partials/Header'
 import Footer from './partials/Footer'
 import { userService } from '.././service/usersService'
 import Main from './users/Main'
+import Load from './Load'
+
 
 
 class App extends Component {
@@ -14,7 +16,8 @@ class App extends Component {
       user: [],
       displayCard: false,
       nameIcon: false,
-      search: ''
+      search: '',
+      load:false,
     }
     //   localStorage.setItem("displaySave",this.state.displayCard)
     //  localStorage.setItem("iconSave",this.state.nameIcon)
@@ -31,15 +34,10 @@ class App extends Component {
     this.setState({ nameIcon })
   }
 
-  refreshData = () => {
-    userService
-      .fetchUsers().then(userList => {
-        this.setState({
-          user: userList
-         
-        })
-      })
-    
+  refreshData = (event) => {
+    event.preventDefault()
+      
+    this.fetchUsers()
   }
 
  updateSearch=(event) =>{ 
@@ -59,15 +57,29 @@ class App extends Component {
   
   
   componentDidMount() {
-    this.refreshData()
+    
+    this.fetchUsers()
     
   }
+
+  fetchUsers = () => {
+    
+    userService
+    .fetchUsers().then(userList => {
+      this.setState({
+        user: userList,
+        load:true
+      })
+    })
+  }
+
+  
   
   render() {
-   
+    
     let users = this.state.user
     let filterUsers = users.filter((singleUser)=>{return singleUser.name.indexOf(this.state.search) !== -1})
-    console.log(filterUsers);
+    // console.log(filterUsers);
     
     filterUsers.map((singleUser)=>{console.log(singleUser)})
     
@@ -76,7 +88,8 @@ class App extends Component {
     return (
       <div>
         <Header click={this.handleStates} nameIcon={this.state.nameIcon} refresh={this.refreshData} value={this.state.search} keyup={this.updateSearch.bind(this)}/>
-        <Main data={filterUsers} displayCard={this.state.displayCard}  />
+          {this.state.load?  <Main data={filterUsers} displayCard={this.state.displayCard}  />:<Load />}
+        
         <Footer />
       </div>
 
