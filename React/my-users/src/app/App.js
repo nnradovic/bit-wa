@@ -5,7 +5,8 @@ import Header from './partials/Header'
 import Footer from './partials/Footer'
 import { userService } from '.././service/usersService'
 import Main from './users/Main'
-import Load from './Load'
+import Load from './Load';
+import NotFound from './NotFound';
 
 
 
@@ -17,7 +18,7 @@ class App extends Component {
       displayCard: false,
       nameIcon: false,
       search: '',
-      load:false,
+      load: true,
     }
     //   localStorage.setItem("displaySave",this.state.displayCard)
     //  localStorage.setItem("iconSave",this.state.nameIcon)
@@ -37,6 +38,7 @@ class App extends Component {
   refreshData = (event) => {
     event.preventDefault()
       
+    this.setState({load:true})
     this.fetchUsers()
   }
 
@@ -55,7 +57,6 @@ class App extends Component {
     
   }
   
-  
   componentDidMount() {
     
     this.fetchUsers()
@@ -68,7 +69,7 @@ class App extends Component {
     .fetchUsers().then(userList => {
       this.setState({
         user: userList,
-        load:true
+        load:false
       })
     })
   }
@@ -78,18 +79,18 @@ class App extends Component {
   render() {
     
     let users = this.state.user
-    let filterUsers = users.filter((singleUser)=>{return singleUser.name.indexOf(this.state.search) !== -1})
-    // console.log(filterUsers);
+  
+    let filterUsers = users.filter((singleUser)=>{return singleUser.fullName.toLowerCase().indexOf(this.state.search) !== -1})
+    console.log(filterUsers);
     
-    filterUsers.map((singleUser)=>{console.log(singleUser)})
+
     
-    
+  
     
     return (
       <div>
         <Header click={this.handleStates} nameIcon={this.state.nameIcon} refresh={this.refreshData} value={this.state.search} keyup={this.updateSearch.bind(this)}/>
-          {this.state.load?  <Main data={filterUsers} displayCard={this.state.displayCard}  />:<Load />}
-        
+           {filterUsers ==filterUsers.length ? <NotFound/> : this.state.load ?  <Load /> : <Main data={filterUsers} displayCard={this.state.displayCard}  />}
         <Footer />
       </div>
 
